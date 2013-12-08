@@ -1,12 +1,22 @@
 'use strict'
 
 angular.module('neuralClassifierApp')
-  .controller 'MainCtrl', ($scope, Neurone, Datagenerator) ->
+  .controller 'MainCtrl', ($scope, Neurone, Datagenerator, Classifier) ->
 
     neuron = new Neurone()
 
-    data = Datagenerator.generateData -5, 20, 30, (element) -> if element[0] > 0 then 1 else 0
+    data = Datagenerator.generateData -5, 20, 30
+
+    func = (element) -> if element[0] > 0 then 1 else 0
+
+    classes = Classifier.classify data, func
+    pointsOfClass1 = Classifier.getPointsOfClass 1, data, func
+    pointsOfClass0 = Classifier.getPointsOfClass 0, data, func
+
     console.log data
+    console.log classes
+    console.log pointsOfClass0
+    console.log pointsOfClass1
 
     $scope.points = [
       [0, 1], [2, 2], [3, 3], [3, 4], [7, 2],
