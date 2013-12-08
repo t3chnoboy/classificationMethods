@@ -1,0 +1,80 @@
+
+<h1>Neural Classifier</h1>
+<div class="jumbotron">
+  <h3>Points</h3>
+  <table class="table table-hover">
+    <tr>
+      <th>∆S</th>
+      <th>∆m</th>
+      <th>class</th>
+    </tr>
+    <tr ng-repeat="point in points">
+      <td>
+        <input type="text" ng-model="points[$index][0]" class="form-control input-sm"/>
+      </td>
+      <td>
+        <input type="text" ng-model="points[$index][1]" class="form-control input-sm"/>
+      </td>
+      <td>
+        <input type="text" ng-model="classes[$index]" class="form-control input-sm"/>
+      </td>
+    </tr>
+  </table>
+  <table class="table table-hover">
+    <tr>
+      <th>Wx</th>
+      <th>Wy</th>
+      <th>Wz</th>
+      <th>learning rate</th>
+    </tr>
+    <tr>
+      <td>
+        <input type="text" ng-model="wx" class="form-control"/>
+      </td>
+      <td>
+        <input type="text" ng-model="wy" class="form-control"/>
+      </td>
+      <td>
+        <input type="text" ng-model="wz" class="form-control"/>
+      </td>
+      <td>
+        <input type="text" ng-model="learningRate" class="form-control"/>
+      </td>
+      <td>
+        <button type="button" ng-click="randomWeights()" class="btn btn-success">Random</button>
+        <button type="button" ng-click="train()" class="btn btn-primary">train</button>
+      </td>
+    </tr>
+  </table>
+  <table class="table">
+    <tr>
+      <td>
+        <label>wx</label>
+      </td>
+      <td>
+        <label>wy</label>
+      </td>
+      <td>
+        <label>wz</label>
+      </td>
+      <td>
+        <label>iterations</label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="text" ng-model="resWx" class="form-control"/>
+      </td>
+      <td>
+        <input type="text" ng-model="resWy" class="form-control"/>
+      </td>
+      <td>
+        <input type="text" ng-model="resWz" class="form-control"/>
+      </td>
+      <td>
+        <input type="text" ng-model="iterationsCount" class="form-control"/>
+      </td>
+    </tr>
+  </table>
+  <div id="plot" style="width: 600px; height: 400px; font-size: 15px;" class="jqplot-target"></div>
+</div>

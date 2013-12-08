@@ -1,0 +1,59 @@
+h1 Neural Classifier
+.jumbotron
+  h3 Points
+  table.table.table-hover
+    tr
+      th ∆S
+      th ∆m
+      th class
+    tr(ng-repeat="point in points")
+      td
+        input.form-control.input-sm(type="text", ng-model="points[$index][0]")
+      td
+        input.form-control.input-sm(type="text", ng-model="points[$index][1]")
+      td
+        input.form-control.input-sm(type="text", ng-model="classes[$index]")
+
+  table.table.table-hover
+    tr
+      th Wx
+      th Wy
+      th Wz
+      th learning rate
+    tr
+      td
+        input.form-control(type="text", ng-model="wx")
+      td
+        input.form-control(type="text", ng-model="wy")
+      td
+        input.form-control(type="text", ng-model="wz")
+      td
+        input.form-control(type="text", ng-model="learningRate")
+      td
+        button.btn.btn-success(type="button", ng-click="randomWeights()") Random
+        button.btn.btn-primary(type="button", ng-click="train()") train
+
+
+
+
+  table.table
+    tr
+      td
+        label wx
+      td
+        label wy
+      td
+        label wz
+      td
+        label iterations
+    tr
+      td
+        input.form-control(type="text", ng-model="resWx")
+      td
+        input.form-control(type="text", ng-model="resWy")
+      td
+        input.form-control(type="text", ng-model="resWz")
+      td
+        input.form-control(type="text", ng-model="iterationsCount")
+
+  #plot.jqplot-target(style="width: 600px; height: 400px; font-size: 15px;")
