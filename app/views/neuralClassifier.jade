@@ -6,6 +6,7 @@ h1 Neural Classifier
     input.form-control(type="text", ng-model="learningRate")
     span.input-group-btn
       button.btn(type="button", ng-click="train()") train
+    label Number of iterations: {{iterationsCount}}
 
   button.btn.btn-primary(type="button", ng-click="generateData()") Regenerate data
 
