@@ -1,0 +1,12 @@
+h1 Neural Classifier
+
+.jumbotron
+  .input-group
+    span.input-group-addon learning rate
+    input.form-control(type="text", ng-model="learningRate")
+    span.input-group-btn
+      button.btn(type="button", ng-click="train()") train
+
+  button.btn.btn-primary(type="button", ng-click="generateData()") Regenerate data
+
+  #plot.jqplot-target(style="min-width: 600px; height: 400px; font-size: 15px;")

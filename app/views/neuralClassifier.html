@@ -1,0 +1,10 @@
+
+<h1>Neural Classifier</h1>
+<div class="jumbotron">
+  <div class="input-group"><span class="input-group-addon">learning rate</span>
+    <input type="text" ng-model="learningRate" class="form-control"/><span class="input-group-btn">
+      <button type="button" ng-click="train()" class="btn">train</button></span>
+  </div>
+  <button type="button" ng-click="generateData()" class="btn btn-primary">Regenerate data</button>
+  <div id="plot" style="min-width: 600px; height: 400px; font-size: 15px;" class="jqplot-target"></div>
+</div>
