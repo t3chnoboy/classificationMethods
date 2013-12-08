@@ -1,0 +1,46 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'jqplot' ]
+2 info using npm@1.3.15
+3 info using node@v0.10.22
+4 verbose node symlink /usr/local/bin/node
+5 warn package.json neuralclassifier@0.0.0 No description
+6 warn package.json neuralclassifier@0.0.0 No repository field.
+7 warn package.json neuralclassifier@0.0.0 No README data
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'jqplot', null ]
+10 verbose cache add name=undefined spec="jqplot" args=["jqplot",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'jqplot',
+11 verbose parsed url   path: 'jqplot',
+11 verbose parsed url   href: 'jqplot' }
+12 silly lockFile e11464a1-jqplot jqplot
+13 verbose lock jqplot /Users/macuser/.npm/e11464a1-jqplot.lock
+14 silly lockFile e11464a1-jqplot jqplot
+15 silly lockFile e11464a1-jqplot jqplot
+16 verbose addNamed [ 'jqplot', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 4f014a29-jqplot jqplot@
+19 verbose lock jqplot@ /Users/macuser/.npm/4f014a29-jqplot.lock
+20 silly addNameRange { name: 'jqplot', range: '*', hasData: false }
+21 silly lockFile 4f014a29-jqplot jqplot@
+22 silly lockFile 4f014a29-jqplot jqplot@
+23 error 404 'jqplot' is not in the npm registry.
+23 error 404 You should bug the author to publish it
+23 error 404
+23 error 404 Note that you can also install from a
+23 error 404 tarball, folder, or http url, or git url.
+24 error System Darwin 13.0.0
+25 error command "node" "/usr/local/bin/npm" "install" "jqplot"
+26 error cwd /Users/macuser/Developer/Projects/AngularJS/neuralClassifier
+27 error node -v v0.10.22
+28 error npm -v 1.3.15
+29 error code E404
+30 verbose exit [ 1, true ]
