@@ -1,11 +1,87 @@
 
 <h1>Neural Classifier</h1>
-<div class="jumbotron">
-  <div class="input-group"><span class="input-group-addon">learning rate</span>
-    <input type="text" ng-model="learningRate" class="form-control"/><span class="input-group-btn">
-      <button type="button" ng-click="train()" class="btn">train</button></span>
-    <label>Number of iterations: {{iterationsCount}}</label>
+<div class="row">
+  <div class="jumbotron col-md-4">
+    <h3>Neurone</h3>
+    <table class="table table-hover">
+      <th>
+        <h5>nubmer of samples</h5>
+      </th>
+      <th>
+        <h5>learning rate</h5>
+      </th>
+      <tr>
+        <td>
+          <input type="number" ng-model="samplesNumber" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="number" ng-model="learningRate" class="form-control input-sm"/>
+        </td>
+        <td>
+          <button type="button" ng-click="train()" class="btn">train</button>
+        </td>
+      </tr>
+    </table>
+    <h4>Number of iterations: {{iterationsCount}}</h4>
   </div>
-  <button type="button" ng-click="generateData()" class="btn btn-primary">Regenerate data</button>
+  <div class="jumbotron col-md-7 col-md-offset-1">
+    <h3>Data</h3>
+    <table class="table table-hover">
+      <th>
+        <h5>points</h5>
+      </th>
+      <th>
+        <h5>minX</h5>
+      </th>
+      <th>
+        <h5>maxX</h5>
+      </th>
+      <th>
+        <h5>minY</h5>
+      </th>
+      <th>
+        <h5>maxY</h5>
+      </th>
+      <th>
+        <h5>discrete</h5>
+      </th>
+      <tr>
+        <td>
+          <input type="number" ng-model="numberOfPoints" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="number" ng-model="minX" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="number" ng-model="maxX" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="number" ng-model="minY" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="number" ng-model="maxY" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="checkbox" ng-model="discretePoints"/>
+        </td>
+      </tr>
+      <table class="table table-hover">
+        <tr>
+          <td>
+            <input type="number" ng-model="rateC" class="form-control input-sm"/>
+          </td>
+          <td>
+            <input type="number" ng-model="rateA" class="form-control input-sm"/>
+          </td>
+          <td>
+            <input type="number" ng-model="rateB" class="form-control input-sm"/>
+          </td>
+        </tr>
+      </table>
+      <button type="button" ng-click="generateData()" class="btn">Generate</button>
+    </table>
+  </div>
+</div>
+<div class="jumbotron">
   <div id="plot" style="min-width: 600px; height: 400px; font-size: 15px;" class="jqplot-target"></div>
 </div>
