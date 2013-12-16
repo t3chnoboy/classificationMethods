@@ -3,37 +3,42 @@
 angular.module('neuralClassifierApp')
   .service 'Classifiertester', (Datagenerator) ->
 
+    numberOfPoints = 1000
+
     @evaulate = (knownFunction, predictedFunction) ->
 
-      data             = Datagenerator.generateData -20, 20, -20, 20, 100, no
+      data             = Datagenerator.generateData -20, 20, -20, 20, numberOfPoints, no
       knownClasses     = data.map knownFunction
       predictedClasses = data.map predictedFunction
 
-      console.log knownClasses
-      console.log predictedClasses
+      positives = knownClasses.reduce (previousElement, currentElement) -> previousElement + currentElement
+      negatives = numberOfPoints - positives
+
 
       tp          = 0
       fp          = 0
       tn          = 0
       fn          = 0
-      negatives   = 0
-      positives   = 0
       rocPoints   = []
 
 
       for knownClass, index in knownClasses
         if knownClass is 1
-          positives++
           if predictedClasses[index] is 1 then tp++ else fn++
         else
-          negatives++
           if predictedClasses[index] is 0 then tn++ else fp++
 
         sensitivity = tp/(tp+fn)
         if isNaN(sensitivity) then sensitivity = 1
         specificity = tn/(tn+fp)
         if isNaN(specificity) then specificity = 1
-        rocPoints.push [sensitivity, (1 - specificity)]
+        rocPoints.push [(1 - specificity), sensitivity]
+
+        # tpr = tp / positives
+        # if isNaN(tpr) then tpr = 1
+        # fpr = fp / negatives
+        # if isNaN(fpr) then fpr = 0
+        # rocPoints.push [fpr, tpr]
 
       tp: tp
       fp: fp

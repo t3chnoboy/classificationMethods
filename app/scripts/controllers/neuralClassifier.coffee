@@ -84,7 +84,12 @@ angular.module('neuralClassifierApp')
 
     $scope.testNeurone = ->
       results = Classifiertester.evaulate knownFunction, predictedFunction
-      plot = $.jqplot "plotROC", [results.rocPoints]
+      plot = $.jqplot "plotROC", [results.rocPoints, [[0,0],[1,1]]],
+        series:[
+          showMarker: false
+        ,
+          showMarker: false
+        ]
       console.log results
 
     $scope.init()
