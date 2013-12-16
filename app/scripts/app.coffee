@@ -14,5 +14,8 @@ angular.module('neuralClassifierApp', [
       .when '/neuralClassifier',
         templateUrl: 'views/neuralClassifier.html'
         controller: 'NeuralclassifierCtrl'
+      .when '/decisionTree',
+        templateUrl: 'views/decisionTree.html'
+        controller: 'DecisiontreeCtrl'
       .otherwise
         redirectTo: '/'
