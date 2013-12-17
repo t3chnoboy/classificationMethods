@@ -1,0 +1,49 @@
+
+<h1>Decision tree</h1>
+<div class="jumbotron">
+  <h3>Data</h3>
+  <table class="table table-hover">
+    <th>
+      <h5>points</h5>
+    </th>
+    <th>
+      <h5>minX</h5>
+    </th>
+    <th>
+      <h5>maxX</h5>
+    </th>
+    <th>
+      <h5>minY</h5>
+    </th>
+    <th>
+      <h5>maxY</h5>
+    </th>
+    <th>
+      <h5>discrete</h5>
+    </th>
+    <tr>
+      <td>
+        <input type="number" ng-model="numberOfPoints" class="form-control input-sm"/>
+      </td>
+      <td>
+        <input type="number" ng-model="minX" class="form-control input-sm"/>
+      </td>
+      <td>
+        <input type="number" ng-model="maxX" class="form-control input-sm"/>
+      </td>
+      <td>
+        <input type="number" ng-model="minY" class="form-control input-sm"/>
+      </td>
+      <td>
+        <input type="number" ng-model="maxY" class="form-control input-sm"/>
+      </td>
+      <td>
+        <input type="checkbox" ng-model="discretePoints"/>
+      </td>
+    </tr>
+  </table>
+  <button type="button" ng-click="generateData()" class="btn">Generate</button>
+</div>
+<div class="jumbotron">
+  <div id="plot" style="min-width: 600px; height: 400px; font-size: 15px;" class="jqplot-target"></div>
+</div>

@@ -17,5 +17,11 @@ angular.module('neuralClassifierApp', [
       .when '/decisionTree',
         templateUrl: 'views/decisionTree.html'
         controller: 'DecisiontreeCtrl'
+      .when '/nearestNeighbor',
+        templateUrl: 'views/nearestNeighbor.html'
+        controller: 'NearestneighborCtrl'
+      .when '/euclidDistance',
+        templateUrl: 'views/euclidDistance.html'
+        controller: 'EucliddistanceCtrl'
       .otherwise
         redirectTo: '/'

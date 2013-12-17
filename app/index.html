@@ -27,6 +27,20 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+
+
+    <!-- header -->
+    <div class="header">
+      <ul class="nav nav-pills pull-right" ng-controller="HeaderController">
+        <li ng-class="{ active: isActive('/')}"><a ng-href="#">Neural Classifier (manual)</a></li>
+        <li ng-class="{ active: isActive('/decisionTree')}"><a ng-href="#/decisionTree">Decision Tree</a></li>
+        <li ng-class="{ active: isActive('/neuralClassifier')}"><a ng-href="#/neuralClassifier">Classifiers comparison</a></li>
+        <li ng-class="{ active: isActive('/nearestNeighbour')}"><a ng-href="#/nearestNeighbor">Nearest Neighbor</a></li>
+        <li ng-class="{ active: isActive('/euclidDistance')}"><a ng-href="#/euclidDistance">Euclid distance</a></li>
+      </ul>
+      <h3 class="text-muted">Classification methods</h3>
+    </div>
+
     <div class="container" ng-view=""></div>
 
     <script src="bower_components/jquery/jquery.js"></script>
@@ -69,6 +83,12 @@
         <script src="scripts/services/ClassifierTester.js"></script>
         <script src="scripts/controllers/decisionTree.js"></script>
         <script src="scripts/services/ID3.js"></script>
+        <script src="scripts/services/ClassificationTree.js"></script>
+        <script src="scripts/controllers/HeaderController.js"></script>
+        <script src="scripts/controllers/nearestNeighbor.js"></script>
+        <script src="scripts/services/nearestNeighboursClassifier.js"></script>
+        <script src="scripts/controllers/euclidDistance.js"></script>
+        <script src="scripts/services/EuclidDistanceClassifier.js"></script>
         <!-- endbuild -->
 </body>
 </html>

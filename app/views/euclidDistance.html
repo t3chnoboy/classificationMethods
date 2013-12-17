@@ -1,0 +1,80 @@
+
+<h1>Euclid distance classifier</h1>
+<div class="row">
+  <div class="jumbotron col-md-4">
+    <h3>Euclide distance classifier</h3>
+    <table class="table table-hover">
+      <th>
+        <h5>nubmer of samples</h5>
+      </th>
+      <tr>
+        <td>
+          <input type="number" ng-model="samplesNumber" class="form-control input-sm"/>
+        </td>
+        <td>
+          <button type="button" ng-click="train()" class="btn">train</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="jumbotron col-md-7 col-md-offset-1">
+    <h3>Data</h3>
+    <table class="table table-hover">
+      <th>
+        <h5>points</h5>
+      </th>
+      <th>
+        <h5>minX</h5>
+      </th>
+      <th>
+        <h5>maxX</h5>
+      </th>
+      <th>
+        <h5>minY</h5>
+      </th>
+      <th>
+        <h5>maxY</h5>
+      </th>
+      <th>
+        <h5>discrete</h5>
+      </th>
+      <tr>
+        <td>
+          <input type="number" ng-model="numberOfPoints" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="number" ng-model="minX" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="number" ng-model="maxX" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="number" ng-model="minY" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="number" ng-model="maxY" class="form-control input-sm"/>
+        </td>
+        <td>
+          <input type="checkbox" ng-model="discretePoints"/>
+        </td>
+      </tr>
+      <table class="table table-hover">
+        <tr>
+          <td>
+            <input type="number" ng-model="rateC" class="form-control input-sm"/>
+          </td>
+          <td>
+            <input type="number" ng-model="rateA" class="form-control input-sm"/>
+          </td>
+          <td>
+            <input type="number" ng-model="rateB" class="form-control input-sm"/>
+          </td>
+        </tr>
+      </table>
+      <button type="button" ng-click="generateData()" class="btn">Generate</button>
+    </table>
+  </div>
+</div>
+<div class="jumbotron">
+  <div id="plot" style="min-width: 600px; height: 400px; font-size: 15px;" class="jqplot-target"></div>
+</div>
