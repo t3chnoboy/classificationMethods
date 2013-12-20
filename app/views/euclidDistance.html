@@ -78,3 +78,41 @@
 <div class="jumbotron">
   <div id="plot" style="min-width: 600px; height: 400px; font-size: 15px;" class="jqplot-target"></div>
 </div>
+<div class="jumbotron">
+  <table style="text-align: left;" class="table table-hover">
+    <tr>
+      <td>
+        <h5>true positives: {{testResults.tp}}</h5>
+      </td>
+      <td>
+        <h5>false positives: {{testResults.fp}}</h5>
+      </td>
+      <td>
+        <h5>true negatives: {{testResults.tn}}</h5>
+      </td>
+      <td>
+        <h5>false negatives: {{testResults.fn}}</h5>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h5>precision: {{testResults.precision.toFixed(5) * 100}}%</h5>
+      </td>
+      <td>
+        <h5>recall: {{testResults.recall.toFixed(5)  * 100}}%</h5>
+      </td>
+      <td>
+        <h5>specificity: {{testResults.specificity.toFixed(5)  * 100}}%</h5>
+      </td>
+      <td>
+        <h5>sensitivity: {{testResults.sensitivity.toFixed(5)  * 100}}%</h5>
+      </td>
+      <td>
+        <h5>accuracy: {{testResults.accuracy.toFixed(5)  * 100}}%</h5>
+      </td>
+    </tr>
+  </table>
+</div>
+<!-- .jumbotron
+<div id="plotROC" style="min-width: 600px; height: 400px; font-size: 15px;" class="jqplot-target"></div>
+-->

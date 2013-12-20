@@ -1,36 +1,4 @@
 h1 Decision tree
 
 .jumbotron
-  h3 Data
-  table.table.table-hover
-    th
-      h5 points
-    th
-      h5 minX
-    th
-      h5 maxX
-    th
-      h5 minY
-    th
-      h5 maxY
-    th
-      h5 discrete
-
-    tr
-      td
-        input.form-control.input-sm(type="number", ng-model="numberOfPoints")
-      td
-        input.form-control.input-sm(type="number", ng-model="minX")
-      td
-        input.form-control.input-sm(type="number", ng-model="maxX")
-      td
-        input.form-control.input-sm(type="number", ng-model="minY")
-      td
-        input.form-control.input-sm(type="number", ng-model="maxY")
-      td
-        input(type="checkbox", ng-model="discretePoints")
-
-  button.btn(type="button", ng-click="generateData()") Generate
-
-.jumbotron
   #plot.jqplot-target(style="min-width: 600px; height: 400px; font-size: 15px;")

@@ -3,42 +3,42 @@
 angular.module('neuralClassifierApp')
   .service 'Classifiertester', (Datagenerator) ->
 
-    numberOfPoints = 1000
 
-    @evaulate = (knownFunction, predictedFunction) ->
+    @evaulate = (knownFunction, predictedFunction, data = []) ->
 
-      data             = Datagenerator.generateData -20, 20, -20, 20, numberOfPoints, no
       knownClasses     = data.map knownFunction
       predictedClasses = data.map predictedFunction
 
       positives = knownClasses.reduce (previousElement, currentElement) -> previousElement + currentElement
-      negatives = numberOfPoints - positives
+      negatives = data.length - positives
 
 
       tp          = 0
       fp          = 0
       tn          = 0
       fn          = 0
+      p = 0
+      n = 0
       rocPoints   = []
 
 
       for knownClass, index in knownClasses
         if knownClass is 1
+          p++
           if predictedClasses[index] is 1 then tp++ else fn++
         else
+          n++
           if predictedClasses[index] is 0 then tn++ else fp++
 
-        sensitivity = tp/(tp+fn)
-        if isNaN(sensitivity) then sensitivity = 1
-        specificity = tn/(tn+fp)
-        if isNaN(specificity) then specificity = 1
-        rocPoints.push [(1 - specificity), sensitivity]
+        # sensitivity = tp/(tp+fn)
+        # if isNaN(sensitivity) then sensitivity = 1
+        # specificity = tn/(tn+fp)
+        # if isNaN(specificity) then specificity = 1
+        # rocPoints.push [(1 - specificity), sensitivity]
 
-        # tpr = tp / positives
-        # if isNaN(tpr) then tpr = 1
-        # fpr = fp / negatives
-        # if isNaN(fpr) then fpr = 0
-        # rocPoints.push [fpr, tpr]
+        tpr = tp / positives
+        fpr = fp / negatives
+        rocPoints.push [fpr, tpr]
 
       tp: tp
       fp: fp

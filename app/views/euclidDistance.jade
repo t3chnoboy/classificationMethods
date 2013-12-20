@@ -57,3 +57,29 @@ h1 Euclid distance classifier
 
 .jumbotron
   #plot.jqplot-target(style="min-width: 600px; height: 400px; font-size: 15px;")
+
+.jumbotron
+  table.table.table-hover(style="text-align: left;")
+    tr
+      td
+        h5 true positives: {{testResults.tp}}
+      td
+        h5 false positives: {{testResults.fp}}
+      td
+        h5 true negatives: {{testResults.tn}}
+      td
+        h5 false negatives: {{testResults.fn}}
+    tr
+      td
+        h5 precision: {{testResults.precision.toFixed(5) * 100}}%
+      td
+        h5 recall: {{testResults.recall.toFixed(5)  * 100}}%
+      td
+        h5 specificity: {{testResults.specificity.toFixed(5)  * 100}}%
+      td
+        h5 sensitivity: {{testResults.sensitivity.toFixed(5)  * 100}}%
+      td
+        h5 accuracy: {{testResults.accuracy.toFixed(5)  * 100}}%
+
+// .jumbotron
+  #plotROC.jqplot-target(style="min-width: 600px; height: 400px; font-size: 15px;")

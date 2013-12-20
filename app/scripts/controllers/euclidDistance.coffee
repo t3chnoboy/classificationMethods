@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('neuralClassifierApp')
-  .controller 'EucliddistanceCtrl', ($scope, Eucliddistanceclassifier, Datagenerator, Classifier, ClassificationFuncGenerator) ->
+  .controller 'EucliddistanceCtrl', ($scope, Eucliddistanceclassifier, Datagenerator, Classifier, ClassificationFuncGenerator, Classifiertester) ->
 
     #Global variables
     data = []
@@ -10,7 +10,7 @@ angular.module('neuralClassifierApp')
     pointsOfClass0 = []
     plot = {}
     knownFunction = ->
-    predictedFunction = ->
+    predictedFunction = no
     average0 = [0, 0]
     average1 = [0, 0]
 
@@ -34,6 +34,7 @@ angular.module('neuralClassifierApp')
             showLine: false
           ,
             showLine: false
+            color: 'red'
         ]
       $scope.generateData()
 
@@ -45,6 +46,7 @@ angular.module('neuralClassifierApp')
       #separate arrays of points to draw them in different colors
       pointsOfClass1 = Classifier.getPointsOfClass 1, data, knownFunction
       pointsOfClass0 = Classifier.getPointsOfClass 0, data, knownFunction
+      $scope.testClassifier()
       $scope.redrawPlot()
 
 
@@ -70,12 +72,26 @@ angular.module('neuralClassifierApp')
         points: sampleData
         classes: sampleClasses
 
-      euclid = Eucliddistanceclassifier teacher
-      predictedFunction = ClassificationFuncGenerator.euclidClassifier euclid.average0, euclid.average1
+      euclide = Eucliddistanceclassifier teacher
 
+      predictedFunction = euclide.classifier
+      average0 = euclide.average0
+      average1 = euclide.average1
 
-      average0 = euclid.average0
-      average1 = euclid.average1
+      console.log average0
+      console.log average1
+
+      $scope.testClassifier()
       $scope.redrawPlot()
+
+    $scope.testClassifier = ->
+      if (predictedFunction)
+        $scope.testResults = Classifiertester.evaulate knownFunction, predictedFunction, data
+        # plot = $.jqplot "plotROC", [$scope.testResults.rocPoints, [[0,0],[1,1]]],
+        #   series:[
+        #     showMarker: false
+        #   ,
+        #     showMarker: false
+        #   ]
 
     $scope.init()

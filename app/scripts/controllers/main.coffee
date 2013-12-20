@@ -13,10 +13,6 @@ angular.module('neuralClassifierApp')
     pointsOfClass1 = Classifier.getPointsOfClass 1, data, func
     pointsOfClass0 = Classifier.getPointsOfClass 0, data, func
 
-    console.log data
-    console.log classes
-    console.log pointsOfClass0
-    console.log pointsOfClass1
 
     $scope.points = [
       [0, 1], [2, 2], [3, 3], [3, 4], [7, 2],

@@ -11,7 +11,7 @@ angular.module('neuralClassifierApp')
     plot = {}
     neuron = {}
     knownFunction = ->
-    predictedFunction = ->
+    predictedFunction = no
     y1 = 0
     y2 = 0
 
@@ -47,6 +47,7 @@ angular.module('neuralClassifierApp')
       pointsOfClass1 = Classifier.getPointsOfClass 1, data, knownFunction
       pointsOfClass0 = Classifier.getPointsOfClass 0, data, knownFunction
       $scope.redrawPlot()
+      $scope.testNeurone()
 
 
     $scope.redrawPlot = ->
@@ -83,13 +84,14 @@ angular.module('neuralClassifierApp')
 
 
     $scope.testNeurone = ->
-      results = Classifiertester.evaulate knownFunction, predictedFunction
-      plot = $.jqplot "plotROC", [results.rocPoints, [[0,0],[1,1]]],
-        series:[
-          showMarker: false
-        ,
-          showMarker: false
-        ]
-      console.log results
+      if (predictedFunction)
+        $scope.testResults = Classifiertester.evaulate knownFunction, predictedFunction, data
+        console.log $scope.testResults
+        roc = $.jqplot "plotROC", [$scope.testResults.rocPoints, [[0,0],[1,1]]],
+          series:[
+            showMarker: false
+          ,
+            showMarker: false
+          ]
 
     $scope.init()

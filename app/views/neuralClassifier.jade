@@ -7,13 +7,13 @@ h1 Neural Classifier
       th
         h5 nubmer of samples
       th
-        h5 learning rate
+        h5 learning rate {{learningRate}}
 
       tr
         td
           input.form-control.input-sm(type="number", ng-model="samplesNumber")
         td
-          input.form-control.input-sm(type="number", ng-model="learningRate")
+          input.form-control.input-sm(type="range", min="0.01", max="1", step="0.01", ng-model="learningRate")
         td
           button.btn(type="button", ng-click="train()") train
 
@@ -61,7 +61,30 @@ h1 Neural Classifier
       button.btn(type="button", ng-click="generateData()") Generate
 
 .jumbotron
-  #plot.jqplot-target(style="min-width: 600px; height: 400px; font-size: 15px;")
+  #plot.jqplot-target(style="min-width: 600px; height: 400px; font-size: 10px;")
 
 .jumbotron
+  table.table.table-hover(style="text-align: left;")
+    tr
+      td
+        h5 true positives: {{testResults.tp}}
+      td
+        h5 false positives: {{testResults.fp}}
+      td
+        h5 true negatives: {{testResults.tn}}
+      td
+        h5 false negatives: {{testResults.fn}}
+    tr
+      td
+        h5 precision: {{testResults.precision.toFixed(5) * 100}}%
+      td
+        h5 recall: {{testResults.recall.toFixed(5)  * 100}}%
+      td
+        h5 specificity: {{testResults.specificity.toFixed(5)  * 100}}%
+      td
+        h5 sensitivity: {{testResults.sensitivity.toFixed(5)  * 100}}%
+      td
+        h5 accuracy: {{testResults.accuracy.toFixed(5)  * 100}}%
+
+// .jumbotron
   #plotROC.jqplot-target(style="min-width: 600px; height: 400px; font-size: 15px;")
